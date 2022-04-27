@@ -1,0 +1,37 @@
+<body>   
+    <iframe name="hidden"></iframe>
+	    <h1>Register Here:</h1>
+	    <form id="userForm">
+	    	<table><tr>
+	        <td><label>First Name:</label></td><td><input type="text" name="firstName" required/></td>
+	        </tr><tr>
+	        <td><label>Last Name:</label></td><td><input type="text" name="lastName" required/></td>
+	        </tr><tr>
+	        <td><label>Date of Birth:</label></td><td><input type="date" name="dateOfBirth" required/></td>
+	        </tr></table>
+	        <br><br>
+	        <h2>Contact Info</h2>
+	        <table><tr>
+	        <td><label>Email:</label></td><td><input type="email" name="email" required/></td>
+	        </tr><tr>
+	        <td><label>Mobile Phone:</label></td><td><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="mobilePhone" required/></td>
+	        </tr><tr>
+	        <td><label>Home Phone:</label></td><td><input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="homePhone"/></td>
+	        </tr></table>
+	        <br><br>
+	        <h2>Address</h2>
+	        <table><tr>
+	        <td><label>Address Line 1:</label></td><td><input type="text" name="addressLine1" required/></td>
+	        </tr><tr>
+	        <td><label>Address Line 2:</label></td><td><input type="text" name="addressLine2"/></td>
+	        </tr><tr>
+	        <td><label>State:</label></td><td><input type="text" name="state" required/></td>
+	        </tr><tr>
+	        <td><label>Zip Code:</label></td><td><input type="number" name="zip" required/></td>
+	        </tr></table>
+	        <br><br>
+	        <input type="submit" value="Register"/>
+	    </form>
+	    <br><br>
+	    <form method="get" action="http://localhost:8085/users"><input type="submit" value="All Users"/></form>
+</body> 

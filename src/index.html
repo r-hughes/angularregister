@@ -2,12 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>NgRegister</title>
+  <title>Home Page - Angular</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $("#userForm").on("submit", function(){
+
+            // Form values into key value array
+            var values = {};
+            $.each($(this).serializeArray(), function(){ values[this.name] = this.value; });
+
+            // Preparing AddUserDto
+            var data = {
+                firstName: values["firstName"],
+                lastName: values["lastName"],
+                dateOfBirth: values["dateOfBirth"],
+              contactInfo: {
+                    email: values["email"],
+                    mobilePhone: values["mobilePhone"],
+                homePhone: values["homePhone"]
+                },
+                address: {
+                  addressLine1: values["addressLine1"],
+                  addressLine2: values["addressLine2"],
+                    state: values["state"],
+                    zip: values["zip"]
+                }
+            };
+            
+            $.ajax({
+                url: "http://localhost:8085/users",
+                dataType: "json",
+                contentType: "application/json;charset=utf-8",
+                type: "POST",
+                data: JSON.stringify(data),
+                error: function(result) {
+                  alert(result.responseText);
+                }
+            });
+            return false;
+        });
+    });
+  </script>
   <app-root></app-root>
 </body>
 </html>

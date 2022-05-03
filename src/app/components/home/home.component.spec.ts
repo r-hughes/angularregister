@@ -19,7 +19,17 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should be ready to submit register form', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.onsubmit).toHaveBeenCalledBefore;
+  });
+
+  it('should have form ready for user information', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('#userForm')?.innerHTML).toContain('firstName' && 'lastName' && 'email');
   });
 });
